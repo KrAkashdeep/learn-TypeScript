@@ -26,9 +26,9 @@
 
 // ____________________________________Any____________________________________________
 
-// let n: any = 12;
+// let n: any = 12; store anything
 // console.log( n);
-// n = "akash";
+// n = "akash";  not give error
 // console.log(n);
 // _______________________________Function parameter___________________________________
 
@@ -86,8 +86,99 @@
 
 // angle bracket notation <>
 
-const item: Array<number> = [1, 4, 3];
-item.push(8);
-console.log(item);
-item.pop();
-console.log(item);
+// const item: Array<number> = [1, 4, 3];
+// item.push(8);
+// console.log(item);
+// item.pop();
+// console.log(item);
+// ______________________________________multi dimensional array______________________________________
+
+// const mulDi: number[][] = [
+//   [1, 2, 3],
+//   [4, 6, 7, 8],
+// ];
+
+// console.log(mulDi);
+// _______________________________________Objects_______________________________________
+
+// const person: { fn: string; ln: string; age: number } = {
+//   fn: "Akash",
+//   ln: "deep",
+//   age: 22,
+// };
+// console.log(`Name ${person.fn}${person.ln} and age is ${person.age}`);
+
+// function person(): { fn: string; ln: string; age: number } {
+//   return {
+//     fn: "akash",
+//     ln: "deep",
+//     age: 22,
+//   };
+// }
+
+// console.log(person());
+// ______________________________________________type alias______________________________________________
+
+// type person = {
+//   name: string;
+//   age: number;
+//   readonly location: string; //for read only we cant change value of this
+//   email?: string; //its optional when we add ? sign (we can add or ignore this)
+// };
+// const p: person = {
+//   name: "akash",
+//   age: 22,
+//   email: "akash@gmail.com",
+//   location: "india",
+// };
+// p.name = "akashdeep"; can change
+// p.location = "usa"; gives error
+
+// const info = (p: person) => {
+//   return `Name of person is ${p.name} and the age is ${p.age} and he is from ${p.location}`;
+// };
+
+// console.log(info({ name: "Akash", location: "india", age: 22 }));
+
+// function info(p: person) {
+//   return `Name: ${p.name} \nAge: ${p.age} \nlocation: ${p.location}`;
+// }
+
+// console.log(info({ name: "akash", age: 22, location: "india" }));
+
+// function info(p: person) {
+//   return `Name: ${p.name} \nAge: ${p.age} \nlocation: ${p.location} \n`;
+// }
+
+// console.log(
+//   info({ name: "akash", age: 22, location: "india" })
+// );
+
+//_____________________________________________intersection type_____________________________________________
+
+type UInfo = {
+  name: string;
+  age: number;
+  loc: string;
+};
+type AccDetail = {
+  acNum: number;
+  email: string;
+  pass: string;
+};
+
+type UserDet = UInfo & AccDetail; //two types we connected
+
+const us: UserDet = {
+  name: "akash",
+  age: 22,
+  loc: "india",
+  acNum: 1234567,
+  email: "aka@gm.com",
+  pass: "asdfgre123456",
+};
+
+console.log(us);
+console.log(
+  `name ${us.name}\naccNumber:${us.acNum} \nlocation:${us.loc} \nemail:${us.email}`
+);
