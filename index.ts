@@ -69,3 +69,25 @@
 //   console.log(`hello this message ${msg}`);
 // }
 // mssg("from the calling function ");
+
+// __________________________________________Never keyword__________________________________________
+
+// function thError(s: string): never {
+
+//   throw new Error(s);
+// }
+// ___________________________________________Arrays type___________________________________________
+
+// square[]notatation
+
+// const num: number[] = [1, 2, 3, 4];
+// num.push(7);
+// console.log(num);
+
+// angle bracket notation <>
+
+const item: Array<number> = [1, 4, 3];
+item.push(8);
+console.log(item);
+item.pop();
+console.log(item);
